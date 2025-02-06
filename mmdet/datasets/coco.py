@@ -16,19 +16,20 @@ class CocoDataset(BaseDetDataset):
 
     METAINFO = {
         'classes':
-        ('person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train',
-         'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign',
-         'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep',
-         'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella',
-         'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard',
-         'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard',
-         'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork',
-         'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange',
-         'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair',
-         'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv',
-         'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave',
-         'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase',
-         'scissors', 'teddy bear', 'hair drier', 'toothbrush'),
+        ("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18"),
+        # ('person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train',
+        #  'truck', 'boat', 'traffic light', 'fire hydrant', 'stop sign',
+        #  'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep',
+        #  'cow', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella',
+        #  'handbag', 'tie', 'suitcase', 'frisbee', 'skis', 'snowboard',
+        #  'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard',
+        #  'surfboard', 'tennis racket', 'bottle', 'wine glass', 'cup', 'fork',
+        #  'knife', 'spoon', 'bowl', 'banana', 'apple', 'sandwich', 'orange',
+        #  'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'chair',
+        #  'couch', 'potted plant', 'bed', 'dining table', 'toilet', 'tv',
+        #  'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'microwave',
+        #  'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase',
+        #  'scissors', 'teddy bear', 'hair drier', 'toothbrush'),
         # palette is a list of color tuples, which is used for visualization.
         'palette':
         [(220, 20, 60), (119, 11, 32), (0, 0, 142), (0, 0, 230), (106, 0, 228),
@@ -191,6 +192,8 @@ class CocoDataset(BaseDetDataset):
         valid_data_infos = []
         for i, data_info in enumerate(self.data_list):
             img_id = data_info['img_id']
+            if img_id < 12:
+                continue
             width = data_info['width']
             height = data_info['height']
             if filter_empty_gt and img_id not in ids_in_cat:

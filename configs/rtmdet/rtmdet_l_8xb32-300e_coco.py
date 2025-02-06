@@ -122,7 +122,7 @@ test_dataloader = val_dataloader
 max_epochs = 300
 stage2_num_epochs = 20
 base_lr = 0.004
-interval = 10
+interval = 5
 
 train_cfg = dict(
     max_epochs=max_epochs,
